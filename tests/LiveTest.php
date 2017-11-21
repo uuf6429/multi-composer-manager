@@ -30,8 +30,8 @@ class LiveTest extends TestCase
 
     public static function tearDownAfterClass()
     {
-        rmdir(self::$tempPath);
-        unlink(self::$tempLock);
+        @rmdir(self::$tempPath);
+        @unlink(self::$tempLock);
 
         parent::tearDownAfterClass();
     }
@@ -45,7 +45,7 @@ class LiveTest extends TestCase
         );
 
         foreach ($iterator as $file) {
-            $file->isFile() ? unlink($file->getPathname()) : rmdir($file->getPathname());
+            $file->isFile() ? @unlink($file->getPathname()) : @rmdir($file->getPathname());
         }
 
         parent::tearDown();

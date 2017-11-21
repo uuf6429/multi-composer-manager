@@ -1,0 +1,22 @@
+language: php
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+php:
+  - 5.6
+  - 7.0
+  - 7.1
+  - 7.2
+
+install:
+  - composer global require phpunit/phpunit
+
+script:
+  - phpunit --coverage-clover=coverage.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -t 6e8eb1d4-ec35-4c52-b1ab-fe4307b53f3e

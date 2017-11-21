@@ -3,7 +3,7 @@
 <phpunit colors="true"
          beStrictAboutOutputDuringTests="true"
          beStrictAboutTestsThatDoNotTestAnything="true"
-         bootstrap="vendor/autoload.php">
+         bootstrap="src/MCM.php">
     <testsuites>
         <testsuite name="Tests">
             <directory>tests</directory>
